@@ -1,7 +1,7 @@
 package com.example.auto_didacta.data
 
 //Quemado pero aca ira api para aws
-class UserRepository {
+class loginRepository {
     private val validEmail = "admin@email.com"
     private val validPassword = "1234"
 

@@ -103,6 +103,14 @@
                 android:text="Login"
                 app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Register"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
             <TextView
                 android:id="@+id/txtresultado"
                 android:layout_width="wrap_content"
@@ -111,7 +119,7 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+                app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

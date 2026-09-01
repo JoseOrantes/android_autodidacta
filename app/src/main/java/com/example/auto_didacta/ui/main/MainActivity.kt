@@ -10,7 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.auto_didacta.R
-import com.example.auto_didacta.data.UserRepository
+import com.example.auto_didacta.data.loginRepository
+import com.example.auto_didacta.ui.navigation.appNavigation
 import com.example.auto_didacta.ui.main.factory.MainViewModelFactory
 import android.widget.Toast
 
@@ -20,9 +21,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var etPassword: EditText
     private lateinit var textView1: TextView
     private lateinit var btnLogin: Button
+    private lateinit var btnRegister: Button
 
     private val viewModel: MainViewModel by viewModels {
-        MainViewModelFactory(UserRepository())
+        MainViewModelFactory(loginRepository())
     }
 
     //Inicia aplicacion
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         etPassword = findViewById(R.id.etPassword)
         textView1 = findViewById(R.id.txtresultado)
         btnLogin = findViewById(R.id.btnLogin)
+        btnRegister = findViewById(R.id.btnRegister)
 
         etEmail.setOnClickListener { etEmail.requestFocus() }
         etPassword.setOnClickListener { etPassword.requestFocus() }
@@ -51,8 +54,15 @@ class MainActivity : AppCompatActivity() {
             viewModel.performLogin(mail, pass)
         }
 
+        btnRegister.setOnClickListener {
+            appNavigation.goToRegister(this)
+        }
+
         viewModel.loginResult.observe(this) { resultMessage ->
             textView1.text = resultMessage
+            if (resultMessage == "Credenciales Correctas") {
+                appNavigation.goToProfile(this)
+            }
         }
     }
 

@@ -2,10 +2,10 @@ package com.example.auto_didacta.ui.main.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.auto_didacta.data.UserRepository
+import com.example.auto_didacta.data.loginRepository
 import com.example.auto_didacta.ui.main.MainViewModel
 
-class MainViewModelFactory(private val repository: UserRepository) : ViewModelProvider.Factory {
+class MainViewModelFactory(private val repository: loginRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
