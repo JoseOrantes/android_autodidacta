@@ -9,11 +9,17 @@ import android.widget.EditText
 import android.widget.TextView
 import android.view.View
 
-class MainActivity : AppCompatActivity() {
+class MainActivityOld : AppCompatActivity() {
 
-    private lateinit var editText1: EditText
-    private lateinit var editText2: EditText
+    //private lateinit var editText1: EditText
+    //private lateinit var editText2: EditText
+    //private lateinit var textView1: TextView
+    private lateinit var etEmail: EditText
+    private lateinit var etPassword: EditText
     private lateinit var textView1: TextView
+
+    private val email = "admin@email.com"
+    private val password = "1234"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +31,25 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val matematica: Int = 5
+        //Creando login
+
+        etEmail = findViewById(R.id.etEmail)
+        etPassword = findViewById(R.id.etPassword)
+        textView1 = findViewById(R.id.txtresultado)
+
+        // Forzar teclado al hacer clic si el sistema se "duerme"
+        etEmail.setOnClickListener { etEmail.requestFocus() }
+        etPassword.setOnClickListener { etPassword.requestFocus() }
+    }
+    fun login(view: View) {
+        if (etEmail.text.toString() == email && etPassword.text.toString() == password) {
+            textView1.text = "Credenciales Correctas"
+        } else {
+            textView1.text = "Wrong Credentials "
+        }
+    }
+
+        /*val matematica: Int = 5
         val quimica: Int = 7
         val fisica: Int = 7
         val promedio = (matematica + quimica + fisica)/3
@@ -56,6 +80,7 @@ class MainActivity : AppCompatActivity() {
         val resul = suma.toString()
         textView1.text = resul
     }
+    */
     /*
     //Ciclo de vida de la aplicacion
     override fun onStart() {
