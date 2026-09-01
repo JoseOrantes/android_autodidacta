@@ -12,7 +12,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.auto_didacta.R
 import com.example.auto_didacta.data.loginRepository
 import com.example.auto_didacta.ui.navigation.appNavigation
-import com.example.auto_didacta.ui.main.factory.MainViewModelFactory
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
@@ -23,9 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnLogin: Button
     private lateinit var btnRegister: Button
 
-    private val viewModel: MainViewModel by viewModels {
-        MainViewModelFactory(loginRepository())
-    }
+    private val viewModel: MainViewModel by viewModels()
 
     //Inicia aplicacion
     override fun onCreate(savedInstanceState: Bundle?) {
