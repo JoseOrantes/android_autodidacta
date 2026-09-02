@@ -8,4 +8,4 @@ class loginRepository {
     fun authenticate(email: String, pass: String): Boolean {
         return email == validEmail && pass == validPassword
     }
-}
+    }
